@@ -25,11 +25,11 @@ public class Ball extends Polkadot
 
     private void initialize()
     {
-        MAX_MOVE = (int) (getDiameter() * 15.0 / 100);
-        MIN_MOVE = (int) Math.max(1, MAX_MOVE * 1.0 / 3);
+        MAX_MOVE = (int) (getDiameter() * 8.0 / 100);
+        MIN_MOVE = (int) Math.max(1, MAX_MOVE * 1.0 / 5);
         System.out.format("diameter = %.1f, min move = %d, max move = %d %n", DEFAULT_DIAMETER, MIN_MOVE, MAX_MOVE);
 
-        // dx = getRandomDelta();
+        // change direction, with a greater emphasis on horizontal movement over vertical movement
         dy = getRandomDelta();
         dx = dy * 1.25;
     }
