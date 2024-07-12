@@ -11,7 +11,9 @@ public class Driver
         // nearest multiple of 100
         Dimension frameSize = SwingScreenUtilities.getScaledSize(0.55, 100, true);
 
-        JFrame frame = new JFrame("Computer Math, Unit 2, Lab 17 - Keyboard and Mouse Input");
+        String title = String.format("Get The Prize - Keyboard and Mouse Input - Java version %s", getJavaVersion());
+        System.out.println(title);
+        JFrame frame = new JFrame(title);
         // note the use of setPreferredSize instead of setSize, coupled with
         // frame.pack() below:
         frame.setPreferredSize(frameSize);
@@ -26,7 +28,19 @@ public class Driver
 
         // put the JFrame in the middle of the physical screen
         frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
+    }
+
+    /**
+     * get the java version that is running the current program
+     *
+     * @return string containing the java version running the current program
+     */
+    private static String getJavaVersion()
+    {
+        Runtime.Version runTimeVersion = Runtime.version();
+        return String.format("%s.%s.%s.%s", runTimeVersion.feature(), runTimeVersion.interim(), runTimeVersion.update(), runTimeVersion.patch());
     }
 }
