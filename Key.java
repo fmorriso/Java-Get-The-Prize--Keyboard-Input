@@ -13,7 +13,7 @@ public class Key extends KeyAdapter
 
     public void keyPressed(KeyEvent e)
     {
-        // Up - move the polkadot
+        // Up - move the polkadot up
         if (e.getKeyCode() == KeyEvent.VK_UP) {
             pd.setY(pd.getY() - 10);
 
@@ -22,8 +22,8 @@ public class Key extends KeyAdapter
                 pd.setY(pd.getRadius());
         }
 
-        // Down - move the polkadot
-        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+        // Down - move the polkadot down
+        else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             pd.setY(pd.getY() + 10);
 
             // ensure polkadot doesn't go past the bottom of the screen
@@ -31,8 +31,8 @@ public class Key extends KeyAdapter
                 pd.setY(FRAME - pd.getRadius());
         }
 
-        // Left - move the polkadot
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+        // Left - move the polkadot to the left
+        else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             pd.setX(pd.getX() - 10);
 
             // ensure polkadot doesn't go past the left side of the screen
@@ -40,8 +40,8 @@ public class Key extends KeyAdapter
                 pd.setX(pd.getRadius());
         }
 
-        // Right - move the polkadot
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+        // Right - move the polkadot to the right
+        else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             pd.setX(pd.getX() + 10);
 
             // ensure polkadot doesn't go past the right side of the screen

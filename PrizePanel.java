@@ -68,6 +68,8 @@ public class PrizePanel extends JPanel
             pd.jump(FRAME, FRAME);
 
             hits++;
+
+            // change color of both the ball and the polkadot after each collision
             ball.setColor(ColorExtensions.getRandomDarkColor());
             pd.setColor(ColorExtensions.getRandomDarkColor(ball.getColor(), 128));
         }
@@ -83,7 +85,7 @@ public class PrizePanel extends JPanel
      * @param y2 the y-coordinate of the second point
      * @return the distance between two points (x1, y1) and (x2, y2)
      */
-    private double distance(double x1, double y1, double x2, double y2)
+    private static double distance(double x1, double y1, double x2, double y2)
     {
         return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2)); // enter the calculation here.
     }
@@ -106,11 +108,11 @@ public class PrizePanel extends JPanel
     {
         public void actionPerformed(ActionEvent e)
         {
+            // draw the background
             myBuffer.setColor(BACKGROUND);
             myBuffer.fillRect(0, 0, FRAME, FRAME);
 
-            // player1.draw(mybuffer);
-
+            // move the ball and check to see if it collided with the Polkadot
             ball.move(FRAME, FRAME);
             collide(ball, pd);
 
