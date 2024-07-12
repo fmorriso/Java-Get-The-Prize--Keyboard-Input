@@ -6,8 +6,7 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 
 @SuppressWarnings("serial")
-public class PrizePanel extends JPanel
-{
+public class PrizePanel extends JPanel {
     private static final Color BACKGROUND = new Color(222, 222, 222);
     private static final Font TEXT_FONT = new Font("Monospaced", Font.BOLD, 48);
     private static final Color BALL_COLOR = ColorExtensions.getRandomDarkColor();
@@ -18,11 +17,10 @@ public class PrizePanel extends JPanel
     private final Ball ball;
     private final Polkadot pd;
     private final Timer t;
-    private int hits;
     private final JFrame parentFrame;
+    private int hits;
 
-    public PrizePanel(JFrame parent)
-    {
+    public PrizePanel(JFrame parent) {
         this.parentFrame = parent;
         FRAME = parentFrame.getHeight();
 
@@ -55,13 +53,24 @@ public class PrizePanel extends JPanel
         setFocusable(true);
     }
 
-    public void paintComponent(Graphics g)
-    {
+    /**
+     * Calculates the distance between two points (x1, y1) and (x2, y2)
+     *
+     * @param x1 the x-coordinate of the first point
+     * @param y1 the y-coordinate of the first point
+     * @param x2 the x-coordinate of the second point
+     * @param y2 the y-coordinate of the second point
+     * @return the distance between two points (x1, y1) and (x2, y2)
+     */
+    private static double distance(double x1, double y1, double x2, double y2) {
+        return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2)); // enter the calculation here.
+    }
+
+    public void paintComponent(Graphics g) {
         g.drawImage(myImage, 0, 0, getWidth(), getHeight(), null);
     }
 
-    private void collide(Ball b, Polkadot pd)
-    {
+    private void collide(Ball b, Polkadot pd) {
         double d = distance(b.getX(), b.getY(), pd.getX(), pd.getY());
 
         if (d <= (b.getRadius() + pd.getRadius())) {
@@ -76,22 +85,7 @@ public class PrizePanel extends JPanel
 
     }
 
-    /**
-     * Calculates the distance between two points (x1, y1) and (x2, y2)
-     *
-     * @param x1 the x-coordinate of the first point
-     * @param y1 the y-coordinate of the first point
-     * @param x2 the x-coordinate of the second point
-     * @param y2 the y-coordinate of the second point
-     * @return the distance between two points (x1, y1) and (x2, y2)
-     */
-    private static double distance(double x1, double y1, double x2, double y2)
-    {
-        return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2)); // enter the calculation here.
-    }
-
-    private void drawMessage(Graphics g, String message, int lineNumber)
-    {
+    private void drawMessage(Graphics g, String message, int lineNumber) {
         g.setColor(Color.BLACK);
         FontMetrics fontMetrics = g.getFontMetrics();
         int textWidth = fontMetrics.stringWidth(message);
@@ -104,10 +98,8 @@ public class PrizePanel extends JPanel
     /**
      * The screen is refreshed every time the Timer updates
      */
-    private class Listener implements ActionListener
-    {
-        public void actionPerformed(ActionEvent e)
-        {
+    private class Listener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
             // draw the background
             myBuffer.setColor(BACKGROUND);
             myBuffer.fillRect(0, 0, FRAME, FRAME);
@@ -128,10 +120,8 @@ public class PrizePanel extends JPanel
         }
     }
 
-    private class Mouse extends MouseAdapter
-    {
-        public void mousePressed(MouseEvent e)
-        {
+    private class Mouse extends MouseAdapter {
+        public void mousePressed(MouseEvent e) {
             // Right Click - move the polkadot
             if (e.isMetaDown()) {
                 pd.setX(e.getX());
@@ -151,10 +141,8 @@ public class PrizePanel extends JPanel
         }
     }
 
-    private class Key extends KeyAdapter
-    {
-        public void keyPressed(KeyEvent e)
-        {
+    private class Key extends KeyAdapter {
+        public void keyPressed(KeyEvent e) {
             final int increment = FRAME / 25;
             final double polkaDotRadius = pd.getRadius();
 

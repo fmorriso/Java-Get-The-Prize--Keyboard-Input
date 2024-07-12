@@ -1,7 +1,6 @@
 import java.awt.*;
 
-public class ColorExtensions
-{
+public class ColorExtensions {
 
     private static final int LOWEST = 0;
 
@@ -10,8 +9,7 @@ public class ColorExtensions
      *
      * @return Color instance that contains random values for Red, Green and Blue
      */
-    public static Color getRandomColor()
-    {
+    public static Color getRandomColor() {
         final int HIGHEST = 255;
         final int RANGE = HIGHEST - LOWEST + 1;
 
@@ -27,8 +25,7 @@ public class ColorExtensions
      *
      * @return Color instance that is in the brighter/lighter portion of the color spectrum
      */
-    public static Color getRandomBrightColor()
-    {
+    public static Color getRandomBrightColor() {
         final int HIGHEST = 255;
         final int LOWEST = 128;
         final int RANGE = HIGHEST - LOWEST + 1;
@@ -49,8 +46,7 @@ public class ColorExtensions
      *
      * @return Color instance that is in the darker portion of the color spectrum
      */
-    public static Color getRandomDarkColor()
-    {
+    public static Color getRandomDarkColor() {
         final int HIGHEST = 127;
         final int RANGE = HIGHEST - LOWEST + 1;
 
@@ -69,8 +65,7 @@ public class ColorExtensions
      * @return Color instance that is in the darker portion of the color spectrum
      * @apiNote We look for a dark color that is sufficiently different from the comparision Color instance.
      */
-    public static Color getRandomDarkColor(Color compareColor, int byTotalRGB)
-    {
+    public static Color getRandomDarkColor(Color compareColor, int byTotalRGB) {
         Color c;
         do {
             c = getRandomDarkColor();
@@ -89,8 +84,7 @@ public class ColorExtensions
      * @return - true if the total RGB difference is less than or equal to the expected value;
      * otherwise, return false.
      */
-    public static boolean areSignificantlyDifferentColors(Color c1, Color c2, int byTotalRGB)
-    {
+    public static boolean areSignificantlyDifferentColors(Color c1, Color c2, int byTotalRGB) {
         return getColorDifference(c1, c2) <= byTotalRGB;
     }
 
@@ -99,8 +93,7 @@ public class ColorExtensions
      * @param c2 - a Color instance
      * @return the absolute value integer total difference (R + G + B) between the two colors
      */
-    public static int getColorDifference(Color c1, Color c2)
-    {
+    public static int getColorDifference(Color c1, Color c2) {
         int totalRGB1 = c1.getRed() + c1.getGreen() + c1.getBlue();
         int totalRGB2 = c2.getRed() + c2.getGreen() + c2.getBlue();
         return Math.abs(totalRGB1 - totalRGB2);

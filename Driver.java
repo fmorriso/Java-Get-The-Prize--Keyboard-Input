@@ -3,10 +3,8 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Driver
-{
-    public static void main(String[] args)
-    {
+public class Driver {
+    public static void main(String[] args) {
         // use a portion of the screen for the JFrame, but make sure it's square to the
         // nearest multiple of 100
         Dimension frameSize = SwingScreenUtilities.getScaledSize(0.55, 100, true);
@@ -38,8 +36,7 @@ public class Driver
      *
      * @return string containing the java version running the current program
      */
-    private static String getJavaVersion()
-    {
+    private static String getJavaVersion() {
         Runtime.Version runTimeVersion = Runtime.version();
         return String.format("%s.%s.%s.%s", runTimeVersion.feature(), runTimeVersion.interim(), runTimeVersion.update(), runTimeVersion.patch());
     }

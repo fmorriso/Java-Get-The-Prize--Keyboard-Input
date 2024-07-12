@@ -1,7 +1,6 @@
 import java.awt.*;
 
-public class SwingScreenUtilities
-{
+public class SwingScreenUtilities {
     /**
      * Gets a rectangle that is scaled to a percentage of available device screen
      * size,
@@ -12,8 +11,7 @@ public class SwingScreenUtilities
      * @param multipleOf - value to round up the scaled size to be a multiple of.
      * @return - a Dimension object that holds the scaled width and height.
      */
-    public static Dimension getScaledSize(double pct, int multipleOf)
-    {
+    public static Dimension getScaledSize(double pct, int multipleOf) {
         return getScaledSize(pct, multipleOf, false);
     }
 
@@ -28,16 +26,14 @@ public class SwingScreenUtilities
      *                   using the smaller of the device width and height.
      * @return - a Dimension object that holds the scaled width and height.
      */
-    public static Dimension getScaledSize(double pct, int multipleOf, boolean wantSquare)
-    {
+    public static Dimension getScaledSize(double pct, int multipleOf, boolean wantSquare) {
         Dimension screenSize = getDefaultScreenSize();
         // sanity check for unreasonable percentage values
         if (pct < 0.1 || pct > 1)
             return screenSize;
 
         Dimension frameSize = getDimension(pct, multipleOf);
-        if (wantSquare)
-        {
+        if (wantSquare) {
             // make the frame size square
             int n = (int) (Math.min(frameSize.getWidth(), frameSize.getHeight()));
             frameSize.setSize(n, n);
@@ -55,8 +51,7 @@ public class SwingScreenUtilities
      * @param multipleOf - value to round up the scaled size to be a multiple of.
      * @return - a Dimension object that holds the scaled width and height.
      */
-    private static Dimension getDimension(double pct, int multipleOf)
-    {
+    private static Dimension getDimension(double pct, int multipleOf) {
         Dimension screenSize = getDefaultScreenSize();
         // sanity check for unreasonable percentage values
         if (pct < 0.1 || pct > 1)
@@ -74,10 +69,10 @@ public class SwingScreenUtilities
 
     /**
      * Gets the default screen size of the device this program is running on.
-      * @return Dimension containing the default screen width and height.
+     *
+     * @return Dimension containing the default screen width and height.
      */
-    private static Dimension getDefaultScreenSize()
-    {
+    private static Dimension getDefaultScreenSize() {
         GraphicsEnvironment genv = GraphicsEnvironment.getLocalGraphicsEnvironment();
         GraphicsDevice device = genv.getDefaultScreenDevice();
         DisplayMode mode = device.getDisplayMode();

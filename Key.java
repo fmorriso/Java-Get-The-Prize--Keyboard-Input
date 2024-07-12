@@ -1,18 +1,15 @@
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class Key extends KeyAdapter
-{
+public class Key extends KeyAdapter {
     private Polkadot pd;
     private int FRAME;
 
-    public Key()
-    {
+    public Key() {
 
     }
 
-    public void keyPressed(KeyEvent e)
-    {
+    public void keyPressed(KeyEvent e) {
         // Up - move the polkadot up
         if (e.getKeyCode() == KeyEvent.VK_UP) {
             pd.setY(pd.getY() - 10);
@@ -52,25 +49,21 @@ public class Key extends KeyAdapter
     }
 
 
-    public Polkadot getPd()
-    {
+    public Polkadot getPd() {
         return pd;
     }
 
-    public void setPd(Polkadot pd)
-    {
+    public void setPd(Polkadot pd) {
         this.pd = pd;
     }
 
 
-    public int getFRAME()
-    {
+    public int getFRAME() {
         return FRAME;
     }
 
 
-    public void setFRAME(int fRAME)
-    {
+    public void setFRAME(int fRAME) {
         FRAME = fRAME;
     }
 }

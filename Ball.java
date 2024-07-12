@@ -2,8 +2,7 @@
 
 import java.awt.*;
 
-public class Ball extends Polkadot
-{
+public class Ball extends Polkadot {
     private static final double DEFAULT_DIAMETER = 50;
     private int MAX_MOVE = 12;
     private int MIN_MOVE = MAX_MOVE / 2;
@@ -17,14 +16,12 @@ public class Ball extends Polkadot
         initialize();
     }
 
-    public Ball(double x, double y, double dia, Color c)
-    {
+    public Ball(double x, double y, double dia, Color c) {
         super(x, y, dia, c);
         initialize();
     }
 
-    private void initialize()
-    {
+    private void initialize() {
         MAX_MOVE = (int) (getDiameter() * 8.0 / 100);
         MIN_MOVE = (int) Math.max(1, MAX_MOVE * 1.0 / 5);
         System.out.format("diameter = %.1f, min move = %d, max move = %d %n", DEFAULT_DIAMETER, MIN_MOVE, MAX_MOVE);
@@ -35,30 +32,25 @@ public class Ball extends Polkadot
     }
 
     // modifier methods
-    public void setdx(double x)
-    {
+    public void setdx(double x) {
         dx = x;
     }
 
-    public void setdy(double y)
-    {
+    public void setdy(double y) {
         dy = y;
     }
 
     // accessor methods
-    public double getdx()
-    {
+    public double getdx() {
         return dx;
     }
 
-    public double getdy()
-    {
+    public double getdy() {
         return dy;
     }
 
     // instance methods
-    public void move(double rightEdge, double bottomEdge)
-    {
+    public void move(double rightEdge, double bottomEdge) {
         final double topEdge = 0;
         final double leftEdge = 0;
 
@@ -103,14 +95,12 @@ public class Ball extends Polkadot
 
     }
 
-    public void draw(Graphics myBuffer)
-    {
+    public void draw(Graphics myBuffer) {
         myBuffer.setColor(getColor());
         myBuffer.fillOval((int) (getX() - getRadius()), (int) (getY() - getRadius()), (int) getDiameter(), (int) getDiameter());
     }
 
-    private double getRandomDelta()
-    {
+    private double getRandomDelta() {
         return Math.random() * (MAX_MOVE - MIN_MOVE + 1) + MIN_MOVE;
     }
 }
