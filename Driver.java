@@ -1,4 +1,4 @@
-// Computer Math - Unit 2 - Lab 17 - Keyboard Input
+// Get The Prize - Keyboard & Mouse Input
 
 import javax.swing.*;
 import java.awt.*;
