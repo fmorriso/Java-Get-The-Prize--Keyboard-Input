@@ -12,12 +12,12 @@ public class PrizePanel extends JPanel {
     private static final Color BALL_COLOR = ColorExtensions.getRandomDarkColor();
     private static int FRAME = 400;
     private static double BALL_DIAM = 50;
-    private final BufferedImage myImage;
-    private final Graphics myBuffer;
-    private final Ball ball;
-    private final Polkadot pd;
-    private final Timer t;
-    private final JFrame parentFrame;
+    private BufferedImage myImage = null;
+    private Graphics myBuffer = null;
+    private Ball ball = null;
+    private Polkadot pd = null;
+    private Timer t = null;
+    private JFrame parentFrame = null;
     private int hits;
 
     public PrizePanel(JFrame parent) {
