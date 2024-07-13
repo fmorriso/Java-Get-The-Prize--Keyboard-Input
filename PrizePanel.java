@@ -11,12 +11,10 @@ public class PrizePanel extends JPanel {
     private static final Font TEXT_FONT = new Font("Monospaced", Font.BOLD, 48);
     private static final Color BALL_COLOR = ColorExtensions.getRandomDarkColor();
     private static int FRAME = 400;
-    private static double BALL_DIAM = 50;
     private BufferedImage myImage = null;
     private Graphics myBuffer = null;
     private Ball ball = null;
     private Polkadot pd = null;
-    private Timer t = null;
     private JFrame parentFrame = null;
     private int hits;
 
@@ -34,7 +32,7 @@ public class PrizePanel extends JPanel {
         FRAME = parentFrame.getHeight();
 
         // make ball diameter proportional to frame size
-        BALL_DIAM = FRAME * 1.0 / 9;
+        double BALL_DIAM = FRAME * 1.0 / 9;
 
         myImage = new BufferedImage(FRAME, FRAME, BufferedImage.TYPE_INT_RGB);
         myBuffer = myImage.getGraphics();
@@ -51,7 +49,7 @@ public class PrizePanel extends JPanel {
 
         hits = 0;
 
-        t = new Timer(5, new Listener());
+        Timer t = new Timer(5, new Listener());
         t.start();
 
         // Add a "Listener" where the mouse controls some of the output
@@ -62,6 +60,7 @@ public class PrizePanel extends JPanel {
         setFocusable(true);
     }
 
+    @SuppressWarnings("unused")
     private PrizePanel() {
         /* prevent uninitialized instances */
     }
