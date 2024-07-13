@@ -71,13 +71,12 @@ public class PrizePanel extends JPanel {
 
         hits = 0;
 
-        PanelActionListener panelActionListener = new PanelActionListener(this);
-        //Timer t = new Timer(5, new PanelActionListener(this));
+        PanelActionListener panelActionListener = PanelActionListener.getInstance(this);
         Timer t = new Timer(5, panelActionListener);
         t.start();
 
         // Add a "Listener" where the mouse controls some of the output
-        addMouseListener(new MouseHandler(ball, pd));
+        addMouseListener(MouseHandler.getInstance(ball, pd));
 
         // Add a "Listener" for the keyboard controls
         addKeyListener(new Key(FRAME, pd));

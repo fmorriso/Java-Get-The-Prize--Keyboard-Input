@@ -14,11 +14,11 @@ public class PanelActionListener implements ActionListener {
     private final Ball ball;
     private final Polkadot pd;
 
-    private PrizePanel panel = null;
-    private Graphics myBuffer = null;
-    private int FRAME = 0;
+    private PrizePanel panel;
+    private final Graphics myBuffer;
+    private final int FRAME;
 
-    public PanelActionListener(PrizePanel parentPanel) {
+    private PanelActionListener(PrizePanel parentPanel) {
         this.panel = parentPanel;
 
         this.parentFrame = parentPanel.getParentFrame();
@@ -26,6 +26,10 @@ public class PanelActionListener implements ActionListener {
         this.myBuffer = parentPanel.getMyBuffer();
         this.ball = parentPanel.getBall();
         this.pd = parentPanel.getPolkadot();
+    }
+
+    public static PanelActionListener getInstance(PrizePanel parentPanel) {
+        return new PanelActionListener(parentPanel);
     }
 
     /**
@@ -40,6 +44,7 @@ public class PanelActionListener implements ActionListener {
     private static double distance(double x1, double y1, double x2, double y2) {
         return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2)); // enter the calculation here.
     }
+
 
     public void actionPerformed(ActionEvent e) {
         // draw the background
