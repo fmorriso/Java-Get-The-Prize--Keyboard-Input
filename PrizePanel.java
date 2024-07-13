@@ -20,7 +20,16 @@ public class PrizePanel extends JPanel {
     private JFrame parentFrame = null;
     private int hits;
 
-    public PrizePanel(JFrame parent) {
+    /**
+     * Factory method for creating an instance of this class
+     * @param parent - the parent JFrame of this JPanel subclass
+     * @return - an instance of PrizePanel
+     */
+    public static PrizePanel createInstance(JFrame parent) {
+        return new PrizePanel(parent);
+    }
+
+    private PrizePanel(JFrame parent) {
         this.parentFrame = parent;
         FRAME = parentFrame.getHeight();
 
@@ -69,6 +78,7 @@ public class PrizePanel extends JPanel {
     private static double distance(double x1, double y1, double x2, double y2) {
         return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2)); // enter the calculation here.
     }
+
 
     public void paintComponent(Graphics g) {
         g.drawImage(myImage, 0, 0, getWidth(), getHeight(), null);

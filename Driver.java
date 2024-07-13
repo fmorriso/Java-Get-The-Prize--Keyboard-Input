@@ -17,7 +17,7 @@ public class Driver {
         frame.setPreferredSize(frameSize);
         frame.setSize(frameSize);
 
-        PrizePanel pnl = new PrizePanel(frame);
+        PrizePanel pnl = PrizePanel.createInstance(frame);
         pnl.setFocusable(true);
         pnl.requestFocusInWindow();
         frame.getContentPane().add(pnl, BorderLayout.CENTER);
