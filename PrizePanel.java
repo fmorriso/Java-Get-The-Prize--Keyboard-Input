@@ -53,6 +53,10 @@ public class PrizePanel extends JPanel {
         setFocusable(true);
     }
 
+    private PrizePanel() {
+        /* prevent uninitialized instances */
+    }
+
     /**
      * Calculates the distance between two points (x1, y1) and (x2, y2)
      *
