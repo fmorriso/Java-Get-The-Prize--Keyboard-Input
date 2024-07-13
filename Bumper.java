@@ -91,7 +91,7 @@ public class Bumper {
         int minVerticalGap = bottomEdge * 12 / 100;
         System.out.format("minimum vertical gap = %d%n", minVerticalGap);
         do {
-            myY = (int) (Math.random() * (bottomEdge - myYWidth));
+            myY = (int) (Math.random() * (bottomEdge - myYWidth) );
             System.out.format("myY = %d%n", myY);
             bottomGap = bottomEdge - (myY + myYWidth);
             System.out.format("bottomGap = %d%n", bottomGap);
