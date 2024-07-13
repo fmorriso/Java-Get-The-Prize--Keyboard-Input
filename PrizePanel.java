@@ -6,61 +6,30 @@ import java.awt.image.BufferedImage;
 
 @SuppressWarnings("serial")
 public class PrizePanel extends JPanel {
-    public static final Color BACKGROUND = new Color(222, 222, 222);
 
+    public static final Color BACKGROUND = new Color(222, 222, 222);
     private static final Color BALL_COLOR = ColorExtensions.getRandomDarkColor();
+
     public static int FRAME = 400;
     private BufferedImage myImage = null;
-
-    public Graphics getMyBuffer() {
-        return myBuffer;
-    }
-
-    public Ball getBall() {
-        return ball;
-    }
-
-    public Polkadot getPolkadot() {
-        return pd;
-    }
-
     private Graphics myBuffer = null;
     private Ball ball = null;
     private Polkadot pd = null;
-
-    public JFrame getParentFrame() {
-        return parentFrame;
-    }
-
     private JFrame parentFrame = null;
-
-    public int getHits() {
-        return hits;
-    }
-
-    private int hits;
-
-    /**
-     * Factory method for creating an instance of this class
-     * @param parent - the parent JFrame of this JPanel subclass
-     * @return - an instance of PrizePanel
-     */
-    public static PrizePanel createInstance(JFrame parent) {
-        return new PrizePanel(parent);
-    }
+    private int hits = 0;
 
     private PrizePanel(JFrame parent) {
-        this.parentFrame = parent;
+        parentFrame = parent;
         FRAME = parentFrame.getHeight();
 
         // make ball diameter proportional to frame size
-        double BALL_DIAM = FRAME * 1.0 / 9;
+        double ballDiameter = FRAME * 1.0 / 8;
 
         myImage = new BufferedImage(FRAME, FRAME, BufferedImage.TYPE_INT_RGB);
         myBuffer = myImage.getGraphics();
 
         final double ballLocation = FRAME / 4.0;
-        ball = new Ball(ballLocation, ballLocation, BALL_DIAM, BALL_COLOR);
+        ball = new Ball(ballLocation, ballLocation, ballDiameter, BALL_COLOR);
         ball.jump(FRAME, FRAME);
 
         pd = new Polkadot();
@@ -68,8 +37,6 @@ public class PrizePanel extends JPanel {
         // make polkadot diameter proportional to ball diameter
         pd.setDiameter(ball.getDiameter() / 2.0);
         pd.jump(FRAME, FRAME);
-
-        hits = 0;
 
         PanelActionListener panelActionListener = PanelActionListener.getInstance(this);
         Timer t = new Timer(5, panelActionListener);
@@ -88,15 +55,42 @@ public class PrizePanel extends JPanel {
         /* prevent uninitialized instances */
     }
 
+    /**
+     * Factory method for creating an instance of this class
+     *
+     * @param parent - the parent JFrame of this JPanel subclass
+     * @return - an instance of PrizePanel
+     */
+    public static PrizePanel createInstance(JFrame parent) {
+        return new PrizePanel(parent);
+    }
 
+    public Graphics getMyBuffer() {
+        return myBuffer;
+    }
 
+    public Ball getBall() {
+        return ball;
+    }
+
+    public Polkadot getPolkadot() {
+        return pd;
+    }
+
+    public JFrame getParentFrame() {
+        return parentFrame;
+    }
+
+    public int getHits() {
+        return hits;
+    }
 
     public void paintComponent(Graphics g) {
         g.drawImage(myImage, 0, 0, getWidth(), getHeight(), null);
     }
 
-
     public void incrementHits() {
         hits++;
     }
+
 }

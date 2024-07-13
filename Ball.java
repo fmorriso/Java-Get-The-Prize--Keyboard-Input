@@ -51,10 +51,10 @@ public class Ball extends Polkadot {
 
     // instance methods
     public void move(double rightEdge, double bottomEdge) {
+
         final double topEdge = 0;
         final double leftEdge = 0;
-
-        final int MIN_COLOR_DIFFERENCE = 128;
+        final int MIN_COLOR_DIFFERENCE = 64;
 
         // change position of the ball
         setX(getX() + dx); // x = x + dx
@@ -101,6 +101,7 @@ public class Ball extends Polkadot {
     }
 
     private double getRandomDelta() {
-        return Math.random() * (MAX_MOVE - MIN_MOVE + 1) + MIN_MOVE;
+        int range = MAX_MOVE - MIN_MOVE + 1;
+        return Math.random() * range + MIN_MOVE;
     }
 }
