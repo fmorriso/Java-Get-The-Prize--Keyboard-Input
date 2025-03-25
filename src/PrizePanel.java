@@ -1,7 +1,10 @@
 // Computer Math - Unit 2 - Lab 17 - Keyboard Input
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.Timer;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 @SuppressWarnings("serial")

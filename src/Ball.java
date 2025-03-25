@@ -1,6 +1,7 @@
 // Computer Math - Unit 2 - Lab 17 - Keyboard Input
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
 
 public class Ball extends Polkadot {
     private static final double DEFAULT_DIAMETER = 50;

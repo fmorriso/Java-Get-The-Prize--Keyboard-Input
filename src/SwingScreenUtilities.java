@@ -1,4 +1,7 @@
-import java.awt.*;
+import java.awt.Dimension;
+import java.awt.DisplayMode;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 
 public class SwingScreenUtilities {
     /**

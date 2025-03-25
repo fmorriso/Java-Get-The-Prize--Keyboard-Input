@@ -1,6 +1,7 @@
 // Computer Math - Unit 2 - Lab 17 - Keyboard Input
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
 
 public class Polkadot {
     private double myX;   // x and y coordinates of center
