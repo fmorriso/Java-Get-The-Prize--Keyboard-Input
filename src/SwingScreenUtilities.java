@@ -3,12 +3,11 @@ import java.awt.*;
 public class SwingScreenUtilities {
     /**
      * Gets a rectangle that is scaled to a percentage of available device screen
-     * size,
-     * rounded to the specified multiple.
+     * size, rounded to the specified multiple.
      *
-     * @param pct        - the percentage (> 0 and < 1.0) of available device screen
+     * @param pct        - double - the percentage (> 0 and < 1.0) of available device screen
      *                   size to use.
-     * @param multipleOf - value to round up the scaled size to be a multiple of.
+     * @param multipleOf - int - value to round up the scaled size to be a multiple of.
      * @return - a Dimension object that holds the scaled width and height.
      */
     public static Dimension getScaledSize(double pct, int multipleOf) {
@@ -19,10 +18,10 @@ public class SwingScreenUtilities {
      * Gets a rectangle that is scaled to a percentage of available device screen
      * size, rounded to the specified multiple and optionally square sized.
      *
-     * @param pct        - the percentage (> 0 and < 1.0) of available device screen
+     * @param pct        - double - the percentage (> 0 and < 1.0) of available device screen
      *                   size to use.
-     * @param multipleOf - value to round up the scaled size to be a multiple of.
-     * @param wantSquare - true if the scaled size should have equal width and height,
+     * @param multipleOf - int - value to round up the scaled size to be a multiple of.
+     * @param wantSquare - boolean  -true if the scaled size should have equal width and height,
      *                   using the smaller of the device width and height.
      * @return - a Dimension object that holds the scaled width and height.
      */

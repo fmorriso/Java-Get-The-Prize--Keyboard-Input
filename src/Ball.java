@@ -4,8 +4,8 @@ import java.awt.*;
 
 public class Ball extends Polkadot {
     private static final double DEFAULT_DIAMETER = 50;
-    private int MAX_MOVE = 12;
-    private int MIN_MOVE = MAX_MOVE / 2;
+    private int MAX_MOVE = 32;
+    private int MIN_MOVE = (int) (MAX_MOVE  * 0.5);
 
     private double dx; // pixels to move each time move() is called.
     private double dy;

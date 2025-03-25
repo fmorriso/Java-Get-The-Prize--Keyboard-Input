@@ -29,6 +29,9 @@ public class Driver {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
+        int i = 3;
+        String s = "hello";
+
     }
 
     /**
