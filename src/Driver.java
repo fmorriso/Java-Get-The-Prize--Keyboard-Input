@@ -8,7 +8,7 @@ public class Driver {
     public static void main(String[] args) {
         // use a portion of the screen for the JFrame, but make sure it's square to the
         // nearest multiple of 100
-        Dimension frameSize = SwingScreenUtilities.getScaledSize(0.55, 100, true);
+        Dimension frameSize = SwingScreenUtilities.getScaledSize(0.40, 10, true);
 
         String title = String.format("Get The Prize - Keyboard and Mouse Input - Java version %s", getJavaVersion());
         System.out.println(title);
